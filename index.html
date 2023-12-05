@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+           
+            background-color:tomato;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        svg {
+            width: 500px;
+            height: 500px;
+          
+        }
+
+        #msg{
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="msg"></div>
+    <svg id="svg-container">
+        <image xlink:href="./img.svg" width="500" height="500" />
+
+        <circle id="left-eye" cx="263" cy="245" r="10" />
+        <circle id="right-eye" cx="391" cy="245" r="10" />
+        <ellipse id="mouth" cx="260" cy="400" rx="50" ry="20" />
+        <circle id="nose" cx="290" cy="340" r="10" />
+    </svg>
+
+    <script>
+        var msg =document.getElementById('msg');
+        var leftEye = document.getElementById("left-eye");
+        var rightEye = document.getElementById("right-eye");
+        var mouth = document.getElementById("mouth");
+        var nose =document.getElementById('nose');
+
+        function changeColor(element, message) {
+            element.addEventListener("mouseover", function () {
+                element.style.fill = "red";
+                                      
+               msg.innerHTML=`${message}`
+            });
+            
+            element.addEventListener("mouseout", function () {
+                element.style.fill = "transparent";
+            });
+        }
+
+        changeColor(leftEye, "this is left eye");
+        changeColor(rightEye, "this is right eye");
+        changeColor(mouth, "this is mouse");
+        changeColor(nose, "this is nose");
+
+    </script>
+</body>
+
+</html>
